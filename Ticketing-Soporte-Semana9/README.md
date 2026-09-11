@@ -1,6 +1,6 @@
 # Sistema de Ticketing - Soporte TI (Semana 9)
 
-Ultima actualizacion: 10 de septiembre de 2026
+Ultima actualizacion: 11 de septiembre de 2026
 
 Bienvenidos al repositorio de apoyo y entrega para la **Fase 2: Clases en BlueJ** del curso de Programacion 2.
 
@@ -30,4 +30,5 @@ SistemaTicketing/
 ├── BlueJ/       -> Proyecto Java para BlueJ (Ticket, TicketIncidente, TicketRequerimiento, GestionTickets, Main)
 ├── Draw.io/     -> Diagramas UML de Casos de Uso y Diagramas de Flujo (.drawio / .xml)
 ├── VS_Code/     -> Archivos y configuracion del proyecto para Visual Studio Code
+├── .gitignore   -> Archivo de exclusion de archivos compilados y temporales (.class, .ctxt, etc.)
 └── README.md    -> Documentacion principal del repositorio
