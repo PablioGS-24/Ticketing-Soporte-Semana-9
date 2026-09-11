@@ -1,0 +1,9 @@
+#BlueJ class context
+#Thu Sep 10 23:21:14 CST 2026
+comment0.target=TicketRequerimiento
+comment0.text=\r\n Write a description of class TicketRequerimiento here.\r\n \r\n @author (your name) \r\n @version (a version number or a date)\r\n
+comment1.params=id descripcion prioridad areaSolicitante
+comment1.target=TicketRequerimiento(int, java.lang.String, java.lang.String, java.lang.String)
+comment2.target=void calcularSLA()
+comment3.target=java.lang.String getAreaSolicitante()
+numComments=4

@@ -1,0 +1,130 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Página-1" id="7KnmVfy3wKsP9WhB11VG">
+    <mxGraphModel dx="1212" dy="661" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" background="#ffffff" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=18;fontStyle=1;fontColor=#1E293B;" value="Diagrama de Casos de Uso - Sistema de Ticketing" vertex="1">
+          <mxGeometry height="40" width="710" x="220" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="sys_boundary" parent="1" style="shape=rect;html=1;verticalAlign=top;fontStyle=1;whiteSpace=wrap;align=center;fillColor=#F8FAFC;strokeColor=#64748B;strokeWidth=2;dashed=0;fontSize=14;fontColor=#334155;spacingTop=10;" value="Sistema de Ticketing de Soporte de TI" vertex="1">
+          <mxGeometry height="710" width="690" x="240" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="act_usuario" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fillColor=#E2E8F0;strokeColor=#475569;strokeWidth=2;fontSize=12;fontStyle=1;fontColor=#1E293B;" value="Usuario / Cliente" vertex="1">
+          <mxGeometry height="100" width="60" x="60" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="act_tecnico" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fillColor=#DBEAFE;strokeColor=#2563EB;strokeWidth=2;fontSize=12;fontStyle=1;fontColor=#1E293B;" value="Técnico de Soporte&#xa;(Nivel 1 / Nivel 2)" vertex="1">
+          <mxGeometry height="100" width="60" x="60" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="act_cs" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fillColor=#FEF3C7;strokeColor=#D97706;strokeWidth=2;fontSize=12;fontStyle=1;fontColor=#1E293B;" value="Customer Service&#xa;(Atención al Cliente)" vertex="1">
+          <mxGeometry height="100" width="60" x="60" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="act_admin" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fillColor=#E0E7FF;strokeColor=#4338CA;strokeWidth=2;fontSize=12;fontStyle=1;fontColor=#1E293B;" value="Administrador /&#xa;Gerente de TI" vertex="1">
+          <mxGeometry height="100" width="60" x="1010" y="615" as="geometry" />
+        </mxCell>
+        <mxCell id="act_sla" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fillColor=#DCFCE7;strokeColor=#16A34A;strokeWidth=2;fontSize=12;fontStyle=1;fontColor=#1E293B;" value="Motor de SLA&#xa;y Notificaciones" vertex="1">
+          <mxGeometry height="100" width="60" x="1010" y="225" as="geometry" />
+        </mxCell>
+        <mxCell id="cu_crear" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#EFF6FF;strokeColor=#3B82F6;strokeWidth=2;fontSize=12;fontStyle=1;fontColor=#1E3A8A;" value="CU-01: Crear Ticket&#xa;(Incidente / Requerimiento)" vertex="1">
+          <mxGeometry height="70" width="220" x="310" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="cu_asignar" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#EFF6FF;strokeColor=#3B82F6;strokeWidth=2;fontSize=12;fontStyle=1;fontColor=#1E3A8A;" value="CU-02: Asignar Ticket&#xa;(Reglas de SLA)" vertex="1">
+          <mxGeometry height="70" width="220" x="310" y="235" as="geometry" />
+        </mxCell>
+        <mxCell id="cu_escalar" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FEF3C7;strokeColor=#D97706;strokeWidth=2;fontSize=12;fontStyle=1;fontColor=#78350F;" value="CU-03: Escalar Ticket&#xa;(Proceso Recursivo)" vertex="1">
+          <mxGeometry height="70" width="220" x="310" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="cu_cerrar" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FEF3C7;strokeColor=#D97706;strokeWidth=2;fontSize=12;fontStyle=1;fontColor=#78350F;" value="CU-04: Cerrar Caso&#xa;(Customer Service)" vertex="1">
+          <mxGeometry height="75" width="230" x="310" y="490" as="geometry" />
+        </mxCell>
+        <mxCell id="cu_metricas" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#EEF2FF;strokeColor=#4F46E5;strokeWidth=2;fontSize=12;fontStyle=1;fontColor=#1E1B4B;" value="CU-05: Crear Métricas&#xa;(Reportes de SLA y Tiempos)" vertex="1">
+          <mxGeometry height="75" width="230" x="310" y="625" as="geometry" />
+        </mxCell>
+        <mxCell id="cu_validar_datos" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#F1F5F9;strokeColor=#64748B;strokeWidth=1.5;dashed=1;fontSize=11;fontStyle=0;fontColor=#334155;" value="&lt;&lt;include&gt;&gt;&#xa;Validar ID Único y Datos&#xa;(Evitar Excepciones)" vertex="1">
+          <mxGeometry height="65" width="190" x="670" y="112.5" as="geometry" />
+        </mxCell>
+        <mxCell id="cu_calcular_sla" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#DCFCE7;strokeColor=#16A34A;strokeWidth=2;fontSize=12;fontStyle=1;fontColor=#14532D;" value="&lt;&lt;include&gt;&gt;&#xa;Calcular Tiempo de SLA&#xa;(Segun Prioridad)" vertex="1">
+          <mxGeometry height="65" width="190" x="670" y="237.5" as="geometry" />
+        </mxCell>
+        <mxCell id="cu_encuesta" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#F1F5F9;strokeColor=#64748B;strokeWidth=1.5;dashed=1;fontSize=11;fontStyle=0;fontColor=#334155;" value="&lt;&lt;include&gt;&gt;&#xa;Registrar Conformidad&#xa;del Cliente" vertex="1">
+          <mxGeometry height="65" width="190" x="670" y="495" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_usr_crear" edge="1" parent="1" source="act_usuario" style="endArrow=none;html=1;rounded=0;strokeColor=#475569;strokeWidth=1.5;exitX=1;exitY=0.33;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="cu_crear" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="120" y="150" as="sourcePoint" />
+            <mxPoint x="310" y="145" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_usr_cerrar" edge="1" parent="1" source="act_usuario" style="endArrow=none;html=1;rounded=0;strokeColor=#475569;strokeWidth=1.5;exitX=1;exitY=0.33;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.2;entryDx=0;entryDy=0;entryPerimeter=0;" target="cu_cerrar" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="120" y="150" as="sourcePoint" />
+            <mxPoint x="310" y="505" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_tec_asig" edge="1" parent="1" source="act_tecnico" style="endArrow=none;html=1;rounded=0;strokeColor=#2563EB;strokeWidth=2;exitX=1;exitY=0.33;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="cu_asignar" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="120" y="340" as="sourcePoint" />
+            <mxPoint x="310" y="270" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_tec_esc" edge="1" parent="1" source="act_tecnico" style="endArrow=none;html=1;rounded=0;strokeColor=#2563EB;strokeWidth=2;exitX=1;exitY=0.33;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="cu_escalar" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="120" y="340" as="sourcePoint" />
+            <mxPoint x="310" y="395" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_cs_cerrar" edge="1" parent="1" source="act_cs" style="endArrow=none;html=1;rounded=0;strokeColor=#D97706;strokeWidth=2;exitX=1;exitY=0.33;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="cu_cerrar" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="120" y="530" as="sourcePoint" />
+            <mxPoint x="310" y="527" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_admin_met" edge="1" parent="1" source="act_admin" style="endArrow=none;html=1;rounded=0;strokeColor=#4338CA;strokeWidth=2;exitX=0;exitY=0.33;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="cu_metricas" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="1010" y="645" as="sourcePoint" />
+            <mxPoint x="540" y="662" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_escalar_recursivo" edge="1" parent="1" source="cu_escalar" style="endArrow=block;endSize=8;html=1;rounded=1;strokeColor=#D97706;strokeWidth=1.5;exitX=0.8;exitY=0.1;exitDx=0;exitDy=0;entryX=0.8;entryY=0.9;entryDx=0;entryDy=0;" target="cu_escalar" value="&lt;&lt;recursivo&gt;&gt;&#xa;Reescalar a Nivel N+1">
+          <mxGeometry relative="1" x="0.2" y="10" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="570" y="360" />
+              <mxPoint x="600" y="395" />
+              <mxPoint x="570" y="430" />
+            </Array>
+            <mxPoint x="500" y="370" as="sourcePoint" />
+            <mxPoint x="500" y="420" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="inc_crear_val" edge="1" parent="1" source="cu_crear" style="endArrow=open;endSize=10;dashed=1;html=1;rounded=0;strokeColor=#3B82F6;strokeWidth=1.5;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="cu_validar_datos" value="&lt;&lt;include&gt;&gt;">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="530" y="145" as="sourcePoint" />
+            <mxPoint x="670" y="145" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="inc_asig_sla" edge="1" parent="1" source="cu_asignar" style="endArrow=open;endSize=10;dashed=1;html=1;rounded=0;strokeColor=#3B82F6;strokeWidth=1.5;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="cu_calcular_sla" value="&lt;&lt;include&gt;&gt;">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="530" y="270" as="sourcePoint" />
+            <mxPoint x="670" y="270" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="inc_cerrar_enc" edge="1" parent="1" source="cu_cerrar" style="endArrow=open;endSize=10;dashed=1;html=1;rounded=0;strokeColor=#D97706;strokeWidth=1.5;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="cu_encuesta" value="&lt;&lt;include&gt;&gt;">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="540" y="527" as="sourcePoint" />
+            <mxPoint x="670" y="527" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_sla_asig" edge="1" parent="1" source="act_sla" style="endArrow=none;html=1;rounded=0;strokeColor=#16A34A;strokeWidth=2;exitX=0;exitY=0.33;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="cu_calcular_sla" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="1010" y="258" as="sourcePoint" />
+            <mxPoint x="860" y="270" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nota_reglas" parent="1" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;fillColor=#FFFBEB;strokeColor=#F59E0B;fontSize=11;align=left;fontColor=#78350F;size=14;" value="Reglas de Negocio del Sistema:&#xa;1. Crear Ticket: Clasifica en Incidente o Requerimiento.&#xa;2. Asignar Ticket: Aplica regla de SLA (SLA Inmediato vs Programado).&#xa;3. Escalar Ticket (Recursiva): Permite reasignar repetidamente a niveles superiores (N1 -&gt; N2 -&gt; N3) si sobrepasa SLA o complejidad.&#xa;4. Cerrar Caso: Gestionado por Customer Service con validación de satisfacción.&#xa;5. Crear Métricas: Genera KPIs de resolución para gerencia." vertex="1">
+          <mxGeometry height="120" width="340" x="580" y="600" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

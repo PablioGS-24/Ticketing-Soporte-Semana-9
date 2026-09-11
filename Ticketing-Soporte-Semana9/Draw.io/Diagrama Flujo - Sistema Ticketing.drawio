@@ -1,0 +1,156 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Página-1" id="eLhRiMX0JYosgXCu-9g_">
+    <mxGraphModel dx="1471" dy="803" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" background="#ffffff" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="f_title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=20;fontStyle=1;fontColor=#0F172A;" value="Diagrama de Flujo: Ciclo de Vida del Ticket y Gestión de Soporte TI" vertex="1">
+          <mxGeometry height="40" width="850" x="350" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="box_reglas" parent="1" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;fillColor=#FEF3C7;strokeColor=#D97706;strokeWidth=1.5;fontSize=11;align=left;fontColor=#78350F;size=14;spacingLeft=10;spacingRight=10;" value="&lt;b&gt;REGLAS DE NEGOCIO APLICADAS:&lt;/b&gt;&lt;br&gt;1. &lt;b&gt;RN-01 (Validación de Datos):&lt;/b&gt; Control try-catch para ID único entero y datos no nulos.&lt;br&gt;2. &lt;b&gt;RN-02 (Asignación SLA):&lt;/b&gt; Incidente = SLA Inmediato | Requerimiento = SLA Programado.&lt;br&gt;3. &lt;b&gt;RN-03 (Escalación Recursiva):&lt;/b&gt; Reasignación a Nivel N+1 si sobrepasa SLA o complejidad.&lt;br&gt;4. &lt;b&gt;RN-04 (Cierre Customer Service):&lt;/b&gt; Confirmación de conformidad + suma total de horas.&lt;br&gt;5. &lt;b&gt;RN-05 (Creación de Métricas):&lt;/b&gt; Cálculo de KPIs desde List&amp;lt;Ticket&amp;gt; en memoria." vertex="1">
+          <mxGeometry height="155" width="440" x="50" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="node_start" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#10B981;strokeColor=#059669;strokeWidth=2;fontSize=14;fontStyle=1;fontColor=#FFFFFF;" value="INICIO" vertex="1">
+          <mxGeometry height="60" width="140" x="680" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="node_p1" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fillColor=#EFF6FF;strokeColor=#3B82F6;strokeWidth=1.5;fontSize=12;fontColor=#1E3A8A;" value="CU-01: Crear Ticket&#xa;(Ingresar ID, Prioridad y Tipo: Incidente / Requerimiento)" vertex="1">
+          <mxGeometry height="55" width="320" x="590" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="dec_valida" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#FEF9C3;strokeColor=#CA8A04;strokeWidth=2;fontSize=12;fontStyle=1;fontColor=#713F12;" value="¿Datos válidos?&#xa;(ID entero único,&#xa;no nulo - RN-01)" vertex="1">
+          <mxGeometry height="100" width="160" x="670" y="270" as="geometry" />
+        </mxCell>
+        <mxCell id="node_err_valida" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEE2E2;strokeColor=#DC2626;strokeWidth=1.5;fontSize=11;fontColor=#7F1D1D;" value="Atrapar excepción (try-catch):&#xa;&#39;Error FormatException / ID duplicado.&#xa;Reintente el ingreso.&#39;" vertex="1">
+          <mxGeometry height="60" width="220" x="940" y="290" as="geometry" />
+        </mxCell>
+        <mxCell id="dec_tipo" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#DBEAFE;strokeColor=#2563EB;strokeWidth=2;fontSize=12;fontStyle=1;fontColor=#1E3A8A;" value="¿Tipo de Ticket&#xa;es Incidente?&#xa;(RN-02)" vertex="1">
+          <mxGeometry height="100" width="160" x="670" y="410" as="geometry" />
+        </mxCell>
+        <mxCell id="node_sla_inc" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DCFCE7;strokeColor=#16A34A;strokeWidth=1.5;fontSize=12;fontColor=#14532D;" value="Calcular SLA Inmediato&#xa;(Prioridad Severa / SLA Crítico)" vertex="1">
+          <mxGeometry height="55" width="210" x="450" y="535" as="geometry" />
+        </mxCell>
+        <mxCell id="node_sla_req" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F1F5F9;strokeColor=#64748B;strokeWidth=1.5;fontSize=12;fontColor=#1E293B;" value="Calcular SLA Programado&#xa;(Solicitud Estándar / Horas Hábiles)" vertex="1">
+          <mxGeometry height="55" width="210" x="840" y="535" as="geometry" />
+        </mxCell>
+        <mxCell id="node_save_list" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F1F5F9;strokeColor=#64748B;strokeWidth=1.5;fontSize=12;fontColor=#1E293B;" value="Guardar Ticket en List&lt;Ticket&gt;&#xa;(Estado inicial: &#39;Abierto&#39;)" vertex="1">
+          <mxGeometry height="50" width="250" x="625" y="625" as="geometry" />
+        </mxCell>
+        <mxCell id="node_asignar" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EFF6FF;strokeColor=#3B82F6;strokeWidth=1.5;fontSize=12;fontColor=#1E3A8A;" value="CU-02: Asignar Ticket (SLA)&#xa;a Técnico de Soporte Nivel 1 (Estado: &#39;Asignado&#39;)" vertex="1">
+          <mxGeometry height="50" width="300" x="600" y="705" as="geometry" />
+        </mxCell>
+        <mxCell id="dec_resuelto" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#FEF9C3;strokeColor=#CA8A04;strokeWidth=2;fontSize=12;fontStyle=1;fontColor=#713F12;" value="¿Técnico resuelve&#xa;dentro del tiempo&#xa;de SLA?" vertex="1">
+          <mxGeometry height="100" width="160" x="670" y="785" as="geometry" />
+        </mxCell>
+        <mxCell id="node_escalar" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF3C7;strokeColor=#D97706;strokeWidth=2;fontSize=12;fontStyle=1;fontColor=#78350F;" value="CU-03: Escalar Ticket (Recursiva)&#xa;Reasignar a Nivel N+1 / Especialista&#xa;(RN-03: Bucle de Escalación)" vertex="1">
+          <mxGeometry height="60" width="230" x="940" y="805" as="geometry" />
+        </mxCell>
+        <mxCell id="node_solucion" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F1F5F9;strokeColor=#64748B;strokeWidth=1.5;fontSize=12;fontColor=#1E293B;" value="Registrar Solución Técnica&#xa;(Cambiar Estado a &#39;Resuelto&#39;)" vertex="1">
+          <mxGeometry height="50" width="240" x="630" y="915" as="geometry" />
+        </mxCell>
+        <mxCell id="node_cs" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F1F5F9;strokeColor=#64748B;strokeWidth=1.5;fontSize=12;fontColor=#1E293B;" value="Notificar a Customer Service&#xa;(Atención al Cliente)" vertex="1">
+          <mxGeometry height="50" width="230" x="635" y="995" as="geometry" />
+        </mxCell>
+        <mxCell id="dec_conf" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#FEF9C3;strokeColor=#CA8A04;strokeWidth=2;fontSize=12;fontStyle=1;fontColor=#713F12;" value="¿Cliente confirma&#xa;conformidad con&#xa;la solución? (RN-04)" vertex="1">
+          <mxGeometry height="100" width="160" x="670" y="1075" as="geometry" />
+        </mxCell>
+        <mxCell id="node_cerrar" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF3C7;strokeColor=#D97706;strokeWidth=2;fontSize=12;fontStyle=1;fontColor=#78350F;" value="CU-04: Cerrar Caso (Customer Service)&#xa;Registrar horas totales empleadas, encuesta de&#xa;satisfacción y cambiar Estado a &#39;Cerrado&#39;" vertex="1">
+          <mxGeometry height="60" width="310" x="595" y="1205" as="geometry" />
+        </mxCell>
+        <mxCell id="node_metricas" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EEF2FF;strokeColor=#4F46E5;strokeWidth=2;fontSize=12;fontStyle=1;fontColor=#1E1B4B;" value="CU-05: Crear Métricas&#xa;Actualizar KPIs globales, cumplimiento de SLA y&#xa;tiempos promedio desde List&lt;Ticket&gt; (RN-05)" vertex="1">
+          <mxGeometry height="60" width="320" x="590" y="1295" as="geometry" />
+        </mxCell>
+        <mxCell id="node_fin" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#EF4444;strokeColor=#DC2626;strokeWidth=2;fontSize=14;fontStyle=1;fontColor=#FFFFFF;" value="FIN" vertex="1">
+          <mxGeometry height="60" width="140" x="680" y="1385" as="geometry" />
+        </mxCell>
+        <mxCell id="e_start_p1" edge="1" parent="1" source="node_start" style="endArrow=classic;html=1;rounded=0;strokeColor=#475569;strokeWidth=1.5;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="node_p1" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry" />
+        </mxCell>
+        <mxCell id="e_p1_decvalida" edge="1" parent="1" source="node_p1" style="endArrow=classic;html=1;rounded=0;strokeColor=#475569;strokeWidth=1.5;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="dec_valida" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry" />
+        </mxCell>
+        <mxCell id="e_valida_no" edge="1" parent="1" source="dec_valida" style="endArrow=classic;html=1;rounded=0;strokeColor=#DC2626;strokeWidth=1.5;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="node_err_valida" value="NO (Excepción)">
+          <mxGeometry height="50" relative="1" width="50" as="geometry" />
+        </mxCell>
+        <mxCell id="e_errvalida_ret" edge="1" parent="1" source="node_err_valida" style="endArrow=classic;html=1;rounded=0;strokeColor=#DC2626;strokeWidth=1.5;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="node_p1" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <Array as="points">
+              <mxPoint x="1050" y="207" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_valida_si" edge="1" parent="1" source="dec_valida" style="endArrow=classic;html=1;rounded=0;strokeColor=#16A34A;strokeWidth=2;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="dec_tipo" value="SÍ">
+          <mxGeometry height="50" relative="1" width="50" as="geometry" />
+        </mxCell>
+        <mxCell id="e_tipo_si" edge="1" parent="1" source="dec_tipo" style="endArrow=classic;html=1;rounded=0;strokeColor=#16A34A;strokeWidth=1.5;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="node_sla_inc" value="SÍ (Incidente)">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <Array as="points">
+              <mxPoint x="555" y="460" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_tipo_no" edge="1" parent="1" source="dec_tipo" style="endArrow=classic;html=1;rounded=0;strokeColor=#3B82F6;strokeWidth=1.5;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="node_sla_req" value="NO (Requerimiento)">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <Array as="points">
+              <mxPoint x="945" y="460" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_slainc_save" edge="1" parent="1" source="node_sla_inc" style="endArrow=classic;html=1;rounded=0;strokeColor=#475569;strokeWidth=1.5;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="node_save_list" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <Array as="points">
+              <mxPoint x="555" y="650" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_slareq_save" edge="1" parent="1" source="node_sla_req" style="endArrow=classic;html=1;rounded=0;strokeColor=#475569;strokeWidth=1.5;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="node_save_list" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <Array as="points">
+              <mxPoint x="945" y="650" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_save_asig" edge="1" parent="1" source="node_save_list" style="endArrow=classic;html=1;rounded=0;strokeColor=#475569;strokeWidth=1.5;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="node_asignar" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry" />
+        </mxCell>
+        <mxCell id="e_asig_decres" edge="1" parent="1" source="node_asignar" style="endArrow=classic;html=1;rounded=0;strokeColor=#475569;strokeWidth=1.5;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="dec_resuelto" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry" />
+        </mxCell>
+        <mxCell id="e_resuelto_no" edge="1" parent="1" source="dec_resuelto" style="endArrow=classic;html=1;rounded=0;strokeColor=#D97706;strokeWidth=1.5;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="node_escalar" value="NO (Excede SLA / Complejo)">
+          <mxGeometry height="50" relative="1" width="50" as="geometry" />
+        </mxCell>
+        <mxCell id="e_escalar_ret" edge="1" parent="1" source="node_escalar" style="endArrow=classic;html=1;rounded=0;strokeColor=#D97706;strokeWidth=1.5;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="node_asignar" value="Reasignar N+1">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <Array as="points">
+              <mxPoint x="1055" y="730" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_resuelto_si" edge="1" parent="1" source="dec_resuelto" style="endArrow=classic;html=1;rounded=0;strokeColor=#16A34A;strokeWidth=2;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="node_solucion" value="SÍ">
+          <mxGeometry height="50" relative="1" width="50" as="geometry" />
+        </mxCell>
+        <mxCell id="e_solucion_cs" edge="1" parent="1" source="node_solucion" style="endArrow=classic;html=1;rounded=0;strokeColor=#475569;strokeWidth=1.5;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="node_cs" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry" />
+        </mxCell>
+        <mxCell id="e_cs_decconf" edge="1" parent="1" source="node_cs" style="endArrow=classic;html=1;rounded=0;strokeColor=#475569;strokeWidth=1.5;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="dec_conf" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry" />
+        </mxCell>
+        <mxCell id="e_conf_no" edge="1" parent="1" source="dec_conf" style="endArrow=classic;html=1;rounded=0;strokeColor=#DC2626;strokeWidth=1.5;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="node_escalar" value="NO (Insatisfecho)">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <Array as="points">
+              <mxPoint x="1210" y="1125" />
+              <mxPoint x="1210" y="835" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_conf_si" edge="1" parent="1" source="dec_conf" style="endArrow=classic;html=1;rounded=0;strokeColor=#16A34A;strokeWidth=2;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="node_cerrar" value="SÍ">
+          <mxGeometry height="50" relative="1" width="50" as="geometry" />
+        </mxCell>
+        <mxCell id="e_cerrar_met" edge="1" parent="1" source="node_cerrar" style="endArrow=classic;html=1;rounded=0;strokeColor=#475569;strokeWidth=1.5;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="node_metricas" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry" />
+        </mxCell>
+        <mxCell id="e_met_fin" edge="1" parent="1" source="node_metricas" style="endArrow=classic;html=1;rounded=0;strokeColor=#475569;strokeWidth=2;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="node_fin" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

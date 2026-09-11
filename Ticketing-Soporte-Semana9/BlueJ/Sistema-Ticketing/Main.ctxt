@@ -1,0 +1,7 @@
+#BlueJ class context
+#Thu Sep 10 23:24:11 CST 2026
+comment0.target=Main
+comment0.text=\r\n Write a description of class Main here.\r\n \r\n @author (your name) \r\n @version (a version number or a date)\r\n
+comment1.params=args
+comment1.target=void main(java.lang.String[])
+numComments=2
